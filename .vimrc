@@ -16,3 +16,5 @@ filetype plugin on  " required for better searching
 " color theme
 set background=dark
 colorscheme solarized
+"colorscheme gruvbox
+"colorscheme dracula
