@@ -19,42 +19,41 @@ colorscheme solarized
 "colorscheme gruvbox
 "colorscheme dracula
 
-" default indentation: indent with tabs of length 4 whitespaces
+" remove trailing whitespace when saving.
+" to disable it: ":autocmd!"
+autocmd BufWrite * silent! %s/[ \t\r]\+$//
+
+" defautocmdlt indentation: indent with 4 whitespaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab  " replace tab with spaces
+set colorcolumn=80
 
-au BufNewFile,BufRead *.c
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2 |
-	\ set colorcolumn=100
+autocmd BufNewFile,BufRead *.java
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set colorcolumn=100
 
-au BufNewFile,BufRead *.java
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2 |
-	\ set colorcolumn=100
+autocmd BufNewFile,BufRead *.c
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set colorcolumn=100
 
-au BufNewFile,BufRead *.py
-	\ set tabstop=4
-	\ set softtabstop=4
-	\ set shiftwidth=4
-	\ set expandtab  " replace tab with spaces
-	\ set colorcolumn=80
+autocmd BufNewFile,BufRead *.sh
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set colorcolumn=100
 
-au BufNewFile,BufRead *.sh
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2 |
-	\ set colorcolumn=100
+autocmd BufNewFile,BufRead *.xml
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
 
-au BufNewFile,BufRead *.xml
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2
-
-au BufNewFile,BufRead *.html
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2
+autocmd BufNewFile,BufRead *.html
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
