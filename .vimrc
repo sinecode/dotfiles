@@ -1,6 +1,7 @@
 set nocompatible  " set no compatible with old version of VI
 
 syntax enable
+filetype plugin on
 
 set ruler  " show the cursor position all the time
 set showmatch  " highlight matching braces
@@ -10,8 +11,11 @@ set autoindent  " indent the new line when the previous is indented
 
 " searching
 set path+=**  " Search down into subfolders
-set wildmenu  " Display all matching files when we tab complete
-filetype plugin on  " required for better searching
+set wildmenu  " display all the completitions when tab completing
+" stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*.class,*.pyc
+set wildignore+=*DS_Store*
+set wildignore+=*.png,*.jpg,*.gif,*jpeg
 
 " color theme
 set background=dark
@@ -28,7 +32,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab  " replace tab with spaces
-set colorcolumn=80
+
+autocmd BufNewFile,BufRead *.py
+    \ set colorcolumn=80
 
 autocmd BufNewFile,BufRead *.java
     \ set tabstop=2 |
