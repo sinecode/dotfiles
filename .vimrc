@@ -28,6 +28,9 @@ set showmode  " show insert/replace/visual mode
 set number relativenumber " show line numbers (relative)
 set autoindent  " indent the new line when the previous is indented
 
+" disable all sounds
+set belloff=all
+
 " searching
 set path+=**  " Search down into subfolders
 set wildmenu  " display all the completitions when tab completing
@@ -35,6 +38,10 @@ set wildmenu  " display all the completitions when tab completing
 set wildignore=*.o,*.obj,*.class,*.pyc
 set wildignore+=*DS_Store*
 set wildignore+=*.png,*.jpg,*.gif,*jpeg
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
 
 " color theme
 set background=dark
@@ -46,6 +53,9 @@ colorscheme solarized
 " remove trailing whitespace when saving.
 " to disable it: ":autocmd!"
 autocmd BufWrite * silent! %s/[ \t\r]\+$//
+
+" disable auto commenting when new line
+autocmd BufNewFile,BufRead * setlocal formatoptions+=cqn
 
 " default indentation: indent with 4 whitespaces
 set tabstop=4
