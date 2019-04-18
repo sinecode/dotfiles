@@ -67,6 +67,10 @@ autocmd BufNewFile,BufRead *.py
     \ set textwidth=80 |
     \ set colorcolumn=+1
 
+autocmd BufNewFile,BufRead *.m
+    \ set textwidth=80 |
+    \ set colorcolumn=+1
+
 autocmd BufNewFile,BufRead *.md
     \ set textwidth=80 |
     \ set colorcolumn=+1
