@@ -31,7 +31,11 @@ set autoindent  " indent the new line when the previous is indented
 " disable all sounds
 set belloff=all
 
-" searching
+" cursor settings
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[5 q"
+let &t_EI = "\<esc>[2 q"  " | blinking cursor when in insert mode
+
 set path+=**  " Search down into subfolders
 set wildmenu  " display all the completitions when tab completing
 " stuff to ignore when tab completing
@@ -64,10 +68,6 @@ set shiftwidth=4
 set expandtab  " replace tab with spaces
 
 autocmd BufNewFile,BufRead *.py
-    \ set textwidth=80 |
-    \ set colorcolumn=+1
-
-autocmd BufNewFile,BufRead *.m
     \ set textwidth=80 |
     \ set colorcolumn=+1
 
