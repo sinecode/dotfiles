@@ -100,6 +100,7 @@ alias venv27='source ~/Development/pyvenvs/venv3.7/bin/activate'
 alias venv35='source ~/Development/pyvenvs/venv3.5/bin/activate'
 alias venv36='source ~/Development/pyvenvs/venv3.6/bin/activate'
 alias venv37='source ~/Development/pyvenvs/venv3.7/bin/activate'
+alias dfs='hdfs dfs'
 
 
 # Add an "alert" alias for long running commands.  Use like so:

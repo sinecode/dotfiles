@@ -47,6 +47,9 @@ set wildignore+=*.png,*.jpg,*.gif,*jpeg
 set ignorecase
 set smartcase
 
+" spell checking
+set spelllang=en_us,en,it
+
 " color theme
 set background=dark
 colorscheme solarized
