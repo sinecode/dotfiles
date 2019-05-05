@@ -16,17 +16,26 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export PATH="$JAVA_HOME/bin:$PATH"
+if [ -d "/usr/lib/jvm/java-8-oracle" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
 
-export PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin:$PATH" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
 
-# set PATH so it includes user's private bin
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export HADOOP_DIR="/opt/hadoop-2.9.2"
-export PATH="$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH"
-export HADOOP_CONF_DIR="$HADOOP_DIR/etc/hadoop"
-export HADOOP_CLASSPATH=$(hadoop classpath)
+if [ -d "/opt/hadoop-2.9.2" ]; then
+    export HADOOP_DIR="/opt/hadoop-2.9.2"
+    export PATH="$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH"
+    export HADOOP_CONF_DIR="$HADOOP_DIR/etc/hadoop"
+    export HADOOP_CLASSPATH=$(hadoop classpath)
+fi
+
+if [ -d "$HOME/go/bin" ]; then
+    export PATH="$HOME/go/bin:$PATH"
+fi

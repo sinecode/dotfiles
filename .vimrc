@@ -20,12 +20,15 @@ call vundle#begin()
 
 call vundle#end()
 
+filetype plugin on
+
 syntax enable
 
 set ruler  " show the cursor position all the time
 set showmatch  " highlight matching braces
 set showmode  " show insert/replace/visual mode
 set number relativenumber " show line numbers (relative)
+
 set autoindent  " indent the new line when the previous is indented
 
 " disable all sounds
