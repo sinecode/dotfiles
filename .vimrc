@@ -34,6 +34,17 @@ set autoindent  " indent the new line when the previous is indented
 " disable all sounds
 set belloff=all
 
+"more characters will be sent to the screen for redrawing
+set ttyfast
+
+"time waited for key press(es) to complete. It makes for a faster key response
+set ttimeout
+set ttimeoutlen=50
+
+"disable file backup (if you don't need it)
+set nobackup
+set noswapfile
+
 " cursor settings
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
