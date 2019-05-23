@@ -15,7 +15,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # commands to ignore in the history
-HISTIGNORE="ll:ls *:clear"
+HISTIGNORE="ll:clear"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
