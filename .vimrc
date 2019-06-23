@@ -18,9 +18,12 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
 
+    " python
+    Plugin 'python/black'
+
 call vundle#end()
 
-filetype plugin on
+"filetype plugin on
 
 syntax enable
 
@@ -76,7 +79,7 @@ colorscheme solarized
 autocmd BufWrite * silent! %s/[ \t\r]\+$//
 
 " disable auto commenting when new line
-autocmd BufNewFile,BufRead * setlocal formatoptions+=cqn
+set formatoptions-=cro
 
 " default indentation: indent with 4 whitespaces
 set tabstop=4
@@ -84,55 +87,87 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab  " replace tab with spaces
 
+
+""""""""""""""" Python """"""""""""""""""""""
+
 autocmd BufNewFile,BufRead *.py
-    \ set textwidth=80 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=80
+
+" autoexecute Black when saving
+autocmd BufWritePre *.py execute ':Black'
+let g:black_linelength = 80
+
+" disable preview window for kite
+set completeopt-=preview
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""" Markdown """"""""""""""""""""
 
 autocmd BufNewFile,BufRead *.md
-    \ set textwidth=80 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=80
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""" Java """"""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.java
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""" C """""""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.c
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.h
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""" C++ """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.cpp
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.hpp
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""" Bash """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.sh
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set textwidth=100 |
-    \ set colorcolumn=+1
+    \ set colorcolumn=100
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""" XML / HTML / JSON """""""""""""""""
 
 autocmd BufNewFile,BufRead *.xml
     \ set tabstop=2 |
@@ -148,3 +183,5 @@ autocmd BufNewFile,BufRead *.json
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+
+""""""""""""""""""""""""""""""""""""""""""""""
