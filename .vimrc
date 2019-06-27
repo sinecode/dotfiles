@@ -95,7 +95,7 @@ autocmd BufNewFile,BufRead *.py
 
 " autoexecute Black when saving
 autocmd BufWritePre *.py execute ':Black'
-let g:black_linelength = 80
+let g:black_linelength = 79
 
 " disable preview window for kite
 set completeopt-=preview
@@ -162,7 +162,7 @@ autocmd BufNewFile,BufRead *.sh
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-    \ set colorcolumn=100
+    \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
 
