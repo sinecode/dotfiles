@@ -81,6 +81,9 @@ autocmd BufWrite * silent! %s/[ \t\r]\+$//
 " disable auto commenting when new line
 set formatoptions-=cro
 
+" set shared clipboard
+set clipboard^=unnamedplus
+
 " default indentation: indent with 4 whitespaces
 set tabstop=4
 set softtabstop=4
