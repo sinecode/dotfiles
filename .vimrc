@@ -13,6 +13,7 @@ call vundle#begin()
     Plugin 'dracula/vim'
     Plugin 'tomasr/molokai'
     Plugin 'morhetz/gruvbox'
+    Plugin 'NLKNguyen/papercolor-theme'
 
     " utilities
     Plugin 'vim-airline/vim-airline'
@@ -73,6 +74,10 @@ colorscheme solarized
 "colorscheme dracula
 "colorscheme molokai
 "colorscheme gruvbox
+"colorscheme PaperColor
+"let g:airline_theme='sol'
+"colorscheme bruin
+call togglebg#map("<F5>")
 
 " remove trailing whitespace when saving.
 " to disable it: ":autocmd!"
