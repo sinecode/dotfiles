@@ -14,6 +14,7 @@ call vundle#begin()
     Plugin 'tomasr/molokai'
     Plugin 'morhetz/gruvbox'
     Plugin 'NLKNguyen/papercolor-theme'
+    Plugin 'sjl/badwolf'
 
     " utilities
     Plugin 'vim-airline/vim-airline'
@@ -24,14 +25,13 @@ call vundle#begin()
 
 call vundle#end()
 
-"filetype plugin on
-
 syntax enable
 
 set ruler  " show the cursor position all the time
 set showmatch  " highlight matching braces
 set showmode  " show insert/replace/visual mode
 set number relativenumber " show line numbers (relative)
+"set cursorline  "highlight current line
 
 set autoindent  " indent the new line when the previous is indented
 
@@ -59,7 +59,7 @@ set wildmenu  " display all the completitions when tab completing
 " stuff to ignore when tab completing
 set wildignore=*.o,*.obj,*.class,*.pyc
 set wildignore+=*DS_Store*
-set wildignore+=*.png,*.jpg,*.gif,*jpeg
+set wildignore+=*.png,*.jpg,*.gif,*jpeg,*tif,*tiff
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -71,6 +71,7 @@ set spelllang=en_us,en,it
 " color theme
 set background=dark
 colorscheme solarized
+"colorscheme badwolf
 "colorscheme dracula
 "colorscheme molokai
 "colorscheme gruvbox
@@ -90,11 +91,15 @@ set formatoptions-=cro
 set clipboard^=unnamedplus
 
 " default indentation: indent with 4 whitespaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=4  " number of visual spaces per TAB
+set softtabstop=4  " number of spaces in TAB when editing
 set expandtab  " replace tab with spaces
 
+" move vertically by visual line
+nnoremap j gj
+nnoremap <Down> gj
+nnoremap k gk
+nnoremap <Up> gk
 
 """"""""""""""" Python """"""""""""""""""""""
 
@@ -110,6 +115,12 @@ set completeopt-=preview
 
 """""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""" Matlab """""""""""""""""""""
+
+autocmd BufNewFile,BufRead *.m
+    \ set colorcolumn=80
+
+"""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""" Markdown """"""""""""""""""""
 
@@ -117,7 +128,6 @@ autocmd BufNewFile,BufRead *.md
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""" Java """"""""""""""""""""""
 
@@ -128,7 +138,6 @@ autocmd BufNewFile,BufRead *.java
     \ set colorcolumn=100
 
 """""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""" C """""""""""""""""""""""
 
@@ -146,7 +155,6 @@ autocmd BufNewFile,BufRead *.h
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-
 """"""""""""""""""" C++ """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.cpp
@@ -163,7 +171,6 @@ autocmd BufNewFile,BufRead *.hpp
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-
 """""""""""""""""" Bash """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.sh
@@ -173,7 +180,6 @@ autocmd BufNewFile,BufRead *.sh
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""" XML / HTML / JSON """""""""""""""""
 
