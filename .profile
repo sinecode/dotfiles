@@ -25,10 +25,6 @@ if [ -d "$HOME/.local/bin:$PATH" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 if [ -d "/opt/hadoop-2.9.2" ]; then
     export HADOOP_DIR="/opt/hadoop-2.9.2"
     export PATH="$HADOOP_DIR/bin:$HADOOP_DIR/sbin:$PATH"
@@ -36,6 +32,7 @@ if [ -d "/opt/hadoop-2.9.2" ]; then
     export HADOOP_CLASSPATH=$(hadoop classpath)
 fi
 
-if [ -d "$HOME/go/bin" ]; then
-    export PATH="$HOME/go/bin:$PATH"
+# set PATH so it includes user's private bin
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
 fi

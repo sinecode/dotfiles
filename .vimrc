@@ -15,6 +15,7 @@ call vundle#begin()
     Plugin 'morhetz/gruvbox'
     Plugin 'NLKNguyen/papercolor-theme'
     Plugin 'sjl/badwolf'
+    Plugin 'arcticicestudio/nord-vim'
 
     " utilities
     Plugin 'vim-airline/vim-airline'
@@ -38,14 +39,14 @@ set autoindent  " indent the new line when the previous is indented
 " disable all sounds
 set belloff=all
 
-"more characters will be sent to the screen for redrawing
+" more characters will be sent to the screen for redrawing
 set ttyfast
 
-"time waited for key press(es) to complete. It makes for a faster key response
+" time waited for key press(es) to complete. It makes for a faster key response
 set ttimeout
 set ttimeoutlen=50
 
-"disable file backup (if you don't need it)
+" disable file backup (if you don't need it)
 set nobackup
 set noswapfile
 
@@ -70,6 +71,7 @@ set spelllang=en_us,en,it
 
 " color theme
 set background=dark
+call togglebg#map("<F5>")  " press F5 to swith bg light/dark
 colorscheme solarized
 "colorscheme badwolf
 "colorscheme dracula
@@ -78,7 +80,6 @@ colorscheme solarized
 "colorscheme PaperColor
 "let g:airline_theme='sol'
 "colorscheme bruin
-call togglebg#map("<F5>")
 
 " remove trailing whitespace when saving.
 " to disable it: ":autocmd!"
@@ -107,24 +108,17 @@ autocmd BufNewFile,BufRead *.py
     \ set colorcolumn=80
 
 " autoexecute Black when saving
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
 let g:black_linelength = 79
 
 " disable preview window for kite
-set completeopt-=preview
+"set completeopt-=preview
 
 """""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""" Matlab """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.m
-    \ set colorcolumn=80
-
-"""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""" Markdown """"""""""""""""""""
-
-autocmd BufNewFile,BufRead *.md
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
