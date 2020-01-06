@@ -96,11 +96,11 @@ alias ll='ls -lh --si'
 alias la='ls -A'
 alias l='ls -CF'
 alias dropbox='caja-dropbox'
-alias venv27='source ~/Development/pyvenvs/venv2.7/bin/activate'
-alias venv35='source ~/Development/pyvenvs/venv3.5/bin/activate'
-alias venv36='source ~/Development/pyvenvs/venv3.6/bin/activate'
-alias venv37='source ~/Development/pyvenvs/venv3.7/bin/activate'
-alias venv38='source ~/Development/pyvenvs/venv3.8/bin/activate'
+alias venv27='source ~/Development/pyvenvs/venv27/bin/activate'
+alias venv35='source ~/Development/pyvenvs/venv35/bin/activate'
+alias venv36='source ~/Development/pyvenvs/venv36/bin/activate'
+alias venv37='source ~/Development/pyvenvs/venv37/bin/activate'
+alias venv38='source ~/Development/pyvenvs/venv38/bin/activate'
 alias dfs='hdfs dfs'
 
 
@@ -129,3 +129,12 @@ if ! shopt -oq posix; then
 fi
 
 neofetch
+
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
