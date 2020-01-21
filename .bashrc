@@ -15,7 +15,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # commands to ignore in the history
-HISTIGNORE="ll:clear"
+HISTIGNORE="ll:clear:ls"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -101,7 +101,6 @@ alias venv35='source ~/Development/pyvenvs/venv35/bin/activate'
 alias venv36='source ~/Development/pyvenvs/venv36/bin/activate'
 alias venv37='source ~/Development/pyvenvs/venv37/bin/activate'
 alias venv38='source ~/Development/pyvenvs/venv38/bin/activate'
-alias dfs='hdfs dfs'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -128,7 +127,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-neofetch
+# execute neofetch of screenfetch if available
+if hash neofetch 2> /dev/null; then
+    neofetch
+elif hash screenfetch 2> /dev/null; then
+    screenfetch
+fi
 
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
@@ -137,4 +141,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
-
