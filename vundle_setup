@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-# execute this command to download and setup Vundle in order to have vim plugins
+# Execute this command to download and setup Vundle in order to have vim plugins
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
