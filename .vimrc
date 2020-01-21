@@ -22,7 +22,7 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline-themes'
 
     " python
-    Plugin 'python/black'
+    Plugin 'psf/black'
 
 call vundle#end()
 
@@ -32,7 +32,7 @@ set ruler  " show the cursor position all the time
 set showmatch  " highlight matching braces
 set showmode  " show insert/replace/visual mode
 set number relativenumber " show line numbers (relative)
-"set cursorline  "highlight current line
+set cursorline  "highlight current line
 
 set autoindent  " indent the new line when the previous is indented
 
@@ -108,7 +108,7 @@ autocmd BufNewFile,BufRead *.py
     \ set colorcolumn=80
 
 " autoexecute Black when saving
-" autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 let g:black_linelength = 79
 
 " disable preview window for kite
@@ -133,7 +133,7 @@ autocmd BufNewFile,BufRead *.java
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""" C """""""""""""""""""""""
+""""""""""""""""""" C/C++ """""""""""""""""""
 
 autocmd BufNewFile,BufRead *.c
     \ set tabstop=2 |
@@ -147,11 +147,13 @@ autocmd BufNewFile,BufRead *.h
     \ set shiftwidth=2 |
     \ set colorcolumn=100
 
-"""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""" C++ """""""""""""""""""""
-
 autocmd BufNewFile,BufRead *.cpp
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set colorcolumn=100
+
+autocmd BufNewFile,BufRead *.cc
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
@@ -165,7 +167,7 @@ autocmd BufNewFile,BufRead *.hpp
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""" Bash """""""""""""""""""""
+"""""""""""""""""" Shell """"""""""""""""""""
 
 autocmd BufNewFile,BufRead *.sh
     \ set tabstop=2 |
