@@ -16,6 +16,7 @@ call vundle#begin()
     Plugin 'NLKNguyen/papercolor-theme'
     Plugin 'sjl/badwolf'
     Plugin 'arcticicestudio/nord-vim'
+    Plugin 'acarapetis/vim-colors-github'
 
     " utilities
     Plugin 'vim-airline/vim-airline'
@@ -72,14 +73,13 @@ set spelllang=en_us,en,it
 " color theme
 set background=dark
 call togglebg#map("<F5>")  " press F5 to swith bg light/dark
-colorscheme solarized
+"colorscheme solarized
 "colorscheme badwolf
 "colorscheme dracula
 "colorscheme molokai
 "colorscheme gruvbox
-"colorscheme PaperColor
-"let g:airline_theme='sol'
-"colorscheme bruin
+colorscheme PaperColor
+"colorscheme github
 
 " remove trailing whitespace when saving.
 " to disable it: ":autocmd!"
@@ -126,9 +126,6 @@ autocmd BufNewFile,BufRead *.m
 """"""""""""""""" Java """"""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.java
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -136,33 +133,18 @@ autocmd BufNewFile,BufRead *.java
 """"""""""""""""""" C/C++ """""""""""""""""""
 
 autocmd BufNewFile,BufRead *.c
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.h
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.cpp
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.cc
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 autocmd BufNewFile,BufRead *.hpp
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=100
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -170,14 +152,11 @@ autocmd BufNewFile,BufRead *.hpp
 """""""""""""""""" Shell """"""""""""""""""""
 
 autocmd BufNewFile,BufRead *.sh
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-""""""""" XML / HTML / JSON """""""""""""""""
+""""""""" XML / HTML / JSON / YaML """"""""""
 
 autocmd BufNewFile,BufRead *.xml
     \ set tabstop=2 |
@@ -190,6 +169,11 @@ autocmd BufNewFile,BufRead *.html
     \ set shiftwidth=2
 
 autocmd BufNewFile,BufRead *.json
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+
+autocmd BufNewFile,BufRead *.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
