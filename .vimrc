@@ -21,6 +21,7 @@ call vundle#begin()
     " utilities
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'rhysd/vim-clang-format'
 
     " python
     Plugin 'psf/black'
@@ -55,6 +56,11 @@ set noswapfile
 let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[5 q"
 let &t_EI = "\<esc>[2 q"  " | blinking cursor when in insert mode
+
+" open new horizontal split below
+set splitbelow
+" open new vertical split to right
+set splitright
 
 set path+=**  " Search down into subfolders
 set wildmenu  " display all the completitions when tab completing
@@ -91,9 +97,9 @@ set formatoptions-=cro
 " set shared clipboard
 set clipboard^=unnamedplus
 
-" default indentation: indent with 4 whitespaces
-set tabstop=4  " number of visual spaces per TAB
-set softtabstop=4  " number of spaces in TAB when editing
+" default indentation: indent with 2 whitespaces
+set tabstop=2  " number of visual spaces per TAB
+set softtabstop=2  " number of spaces in TAB when editing
 set expandtab  " replace tab with spaces
 
 " move vertically by visual line
@@ -105,6 +111,9 @@ nnoremap <Up> gk
 """"""""""""""" Python """"""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
     \ set colorcolumn=80
 
 " autoexecute Black when saving
@@ -119,6 +128,9 @@ let g:black_linelength = 79
 """""""""""""""" Matlab """""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.m
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -132,20 +144,17 @@ autocmd BufNewFile,BufRead *.java
 
 """"""""""""""""""" C/C++ """""""""""""""""""
 
-autocmd BufNewFile,BufRead *.c
-    \ set colorcolumn=100
+" set clang-format command
+let g:clang_format#command = "clang-format-9"
+" auto format when save
+let g:clang_format#auto_format = 1
+" format accordingly to a .clang_format file
+"let g:clang_format#detect_style_file = 1
+" don't format when a .clang_format file is not found
+"let g:clang_format#enable_fallback_style = 0
 
-autocmd BufNewFile,BufRead *.h
-    \ set colorcolumn=100
-
-autocmd BufNewFile,BufRead *.cpp
-    \ set colorcolumn=100
-
-autocmd BufNewFile,BufRead *.cc
-    \ set colorcolumn=100
-
-autocmd BufNewFile,BufRead *.hpp
-    \ set colorcolumn=100
+autocmd BufNewFile,BufRead *.h,*.c,*.hpp,*.cc,*.cpp
+    \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
 
@@ -155,27 +164,3 @@ autocmd BufNewFile,BufRead *.sh
     \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
-
-""""""""" XML / HTML / JSON / YaML """"""""""
-
-autocmd BufNewFile,BufRead *.xml
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-autocmd BufNewFile,BufRead *.html
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-autocmd BufNewFile,BufRead *.json
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-autocmd BufNewFile,BufRead *.yml
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-""""""""""""""""""""""""""""""""""""""""""""""
