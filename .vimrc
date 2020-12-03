@@ -145,13 +145,13 @@ autocmd BufNewFile,BufRead *.java
 """"""""""""""""""" C/C++ """""""""""""""""""
 
 " set clang-format command
-let g:clang_format#command = "clang-format-9"
+let g:clang_format#command = "clang-format-10"
 " auto format when save
 let g:clang_format#auto_format = 1
 " format accordingly to a .clang_format file
-"let g:clang_format#detect_style_file = 1
+let g:clang_format#detect_style_file = 1
 " don't format when a .clang_format file is not found
-"let g:clang_format#enable_fallback_style = 0
+let g:clang_format#enable_fallback_style = 0
 
 autocmd BufNewFile,BufRead *.h,*.c,*.hpp,*.cc,*.cpp
     \ set colorcolumn=80
