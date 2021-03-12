@@ -127,17 +127,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# execute neofetch of screenfetch if available
-if hash neofetch 2> /dev/null; then
-    neofetch
-elif hash screenfetch 2> /dev/null; then
+# execute neofetch or screenfetch if available
+if hash screenfetch 2> /dev/null; then
     screenfetch
+elif hash neofetch 2> /dev/null; then
+    neofetch
 fi
 
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
+# GO things
+export PATH="$PATH:/usr/local/go/bin"
+export GOPROXY=https://proxy.golang.org
+
+# PostgreSQL things
+export PATH="$PATH:/usr/lib/postgresql/12/bin"
+export PGDATA="/home/ceccoemi/pgdata"

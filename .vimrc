@@ -1,4 +1,5 @@
 set nocompatible  " set no compatible with old version of VI
+filetype plugin indent on
 filetype off  " required by Vundle
 
 " set the runtime path to include Vundle and initialize
@@ -25,6 +26,9 @@ call vundle#begin()
 
     " python
     Plugin 'psf/black'
+
+    " go
+    Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -117,8 +121,8 @@ autocmd BufNewFile,BufRead *.py
     \ set colorcolumn=80
 
 " autoexecute Black when saving
-autocmd BufWritePre *.py execute ':Black'
-let g:black_linelength = 79
+" autocmd BufWritePre *.py execute ':Black'
+" let g:black_linelength = 79
 
 " disable preview window for kite
 "set completeopt-=preview
@@ -162,5 +166,14 @@ autocmd BufNewFile,BufRead *.h,*.c,*.hpp,*.cc,*.cpp
 
 autocmd BufNewFile,BufRead *.sh
     \ set colorcolumn=80
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""" GO """""""""""""""""""""
+
+autocmd BufNewFile,BufRead *.go
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4
 
 """""""""""""""""""""""""""""""""""""""""""""
