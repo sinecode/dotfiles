@@ -99,7 +99,7 @@ autocmd BufWrite * silent! %s/[ \t\r]\+$//
 set formatoptions-=cro
 
 " set shared clipboard
-set clipboard^=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " default indentation: indent with 2 whitespaces
 set tabstop=2  " number of visual spaces per TAB
