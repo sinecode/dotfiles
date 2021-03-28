@@ -18,14 +18,18 @@ call vundle#begin()
     Plugin 'sjl/badwolf'
     Plugin 'arcticicestudio/nord-vim'
     Plugin 'acarapetis/vim-colors-github'
+    Plugin 'google/vim-colorscheme-primary'
 
     " utilities
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'rhysd/vim-clang-format'
+    Plugin 'google/vim-maktaba'
+    Plugin 'google/vim-syncopate'
 
     " python
     Plugin 'psf/black'
+    Plugin 'fisadev/vim-isort'
 
     " go
     Plugin 'fatih/vim-go'
@@ -89,6 +93,7 @@ call togglebg#map("<F5>")  " press F5 to swith bg light/dark
 "colorscheme molokai
 "colorscheme gruvbox
 colorscheme PaperColor
+"colorscheme primary
 "colorscheme github
 
 " remove trailing whitespace when saving.
@@ -121,8 +126,11 @@ autocmd BufNewFile,BufRead *.py
     \ set colorcolumn=80
 
 " autoexecute Black when saving
-" autocmd BufWritePre *.py execute ':Black'
-" let g:black_linelength = 79
+autocmd BufWritePre *.py execute ':Black'
+let g:black_linelength = 79
+
+" autoexecute isort when saving
+autocmd BufWritePre *.py execute ':Isort'
 
 " disable preview window for kite
 "set completeopt-=preview
@@ -170,6 +178,10 @@ autocmd BufNewFile,BufRead *.sh
 """""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""" GO """""""""""""""""""""
+let g:go_metalinter_autosave = 1
+" let g:go_list_type_commands = {"GoMetaLinterAutoSave": "quickfix"}
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_fmt_command = "goimports"
 
 autocmd BufNewFile,BufRead *.go
     \ set tabstop=4 |
