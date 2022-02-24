@@ -46,6 +46,9 @@ set cursorline  "highlight current line
 
 set autoindent  " indent the new line when the previous is indented
 
+" delete in insert mode
+set backspace=indent,eol,start
+
 " disable all sounds
 set belloff=all
 
