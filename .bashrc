@@ -92,15 +92,11 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -lh --si'
+alias ll='ls -lhG'
 alias la='ls -A'
 alias l='ls -CF'
-alias dropbox='caja-dropbox'
-alias venv27='source ~/Development/pyvenvs/venv27/bin/activate'
-alias venv35='source ~/Development/pyvenvs/venv35/bin/activate'
-alias venv36='source ~/Development/pyvenvs/venv36/bin/activate'
-alias venv37='source ~/Development/pyvenvs/venv37/bin/activate'
-alias venv38='source ~/Development/pyvenvs/venv38/bin/activate'
+alias venv39='source ~/dev/pyvenvs/venv39/bin/activate'
+alias venv310='source ~/dev/pyvenvs/venv310/bin/activate'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -138,10 +134,8 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# GO things
-export PATH="$PATH:/usr/local/go/bin"
-export GOPROXY=https://proxy.golang.org
+# enable rbenv
+if hash rbenv 2> /dev/null; then
+    eval "$(rbenv init - bash)"
+fi
 
-# PostgreSQL things
-export PATH="$PATH:/usr/lib/postgresql/12/bin"
-export PGDATA="/home/ceccoemi/pgdata"

@@ -135,9 +135,6 @@ let g:black_linelength = 79
 " autoexecute isort when saving
 autocmd BufWritePre *.py execute ':Isort'
 
-" disable preview window for kite
-"set completeopt-=preview
-
 """""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""" Matlab """""""""""""""""""""
@@ -180,7 +177,7 @@ autocmd BufNewFile,BufRead *.sh
 
 """""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""" GO """""""""""""""""""""
+""""""""""""""""""" GO """"""""""""""""""""""
 let g:go_metalinter_autosave = 1
 " let g:go_list_type_commands = {"GoMetaLinterAutoSave": "quickfix"}
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
@@ -190,5 +187,15 @@ autocmd BufNewFile,BufRead *.go
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4
+
+"""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""" Ruby """"""""""""""""""""""
+
+autocmd BufNewFile,BufRead *.rb
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""
