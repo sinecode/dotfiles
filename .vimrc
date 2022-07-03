@@ -120,6 +120,10 @@ nnoremap <Down> gj
 nnoremap k gk
 nnoremap <Up> gk
 
+" center the matched string
+nnoremap n nzz
+nnoremap N Nzz
+
 """"""""""""""" Python """"""""""""""""""""""
 
 autocmd BufNewFile,BufRead *.py
@@ -128,12 +132,12 @@ autocmd BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set colorcolumn=80
 
+" autoexecute isort when saving
+autocmd BufWritePre *.py execute ':Isort'
+
 " autoexecute Black when saving
 autocmd BufWritePre *.py execute ':Black'
 let g:black_linelength = 79
-
-" autoexecute isort when saving
-autocmd BufWritePre *.py execute ':Isort'
 
 """""""""""""""""""""""""""""""""""""""""""""
 
